@@ -6,5 +6,13 @@ package general;
  */
 public class Vectores
 {
+    int arr[];
+
+    public Vectores(int n)
+    {
+        this.arr = new int[n];
+    }
+    
+    
     
 }
