@@ -8,7 +8,8 @@ import java.awt.event.KeyEvent;
  */
 public class Principal extends javax.swing.JFrame
 {
-    
+    //Kioña kioña xD
+    String nombre2="El PEPE";
     String nombre="Kevin";
     public static int tamaño;
     int indice=0;
