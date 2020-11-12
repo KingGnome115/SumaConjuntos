@@ -1,5 +1,7 @@
 package general;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Kevin
@@ -13,6 +15,9 @@ public class Vectores
         this.arr = new int[n];
     }
     
-    
+    public void Isertar(ArrayList numero)
+    {
+        
+    }
     
 }

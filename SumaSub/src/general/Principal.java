@@ -1,11 +1,16 @@
 package general;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Kevin
  */
 public class Principal extends javax.swing.JFrame
 {
+
+    //Saber el número de elementos que tendra el vector
+    int cont = 0;
 
     /**
      * Creates new form Principal
@@ -25,16 +30,10 @@ public class Principal extends javax.swing.JFrame
     private void initComponents()
     {
 
-        jLabel3 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         J1 = new javax.swing.JLabel();
         TAnadir = new javax.swing.JTextField();
         BAnadir = new javax.swing.JButton();
-
-        jLabel3.setText("jLabel3");
-
-        jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,7 +41,22 @@ public class Principal extends javax.swing.JFrame
 
         J1.setForeground(new java.awt.Color(0, 153, 0));
 
+        TAnadir.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                TAnadirKeyTyped(evt);
+            }
+        });
+
         BAnadir.setText("Añadir");
+        BAnadir.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                BAnadirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,6 +105,35 @@ public class Principal extends javax.swing.JFrame
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BAnadirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BAnadirActionPerformed
+    {//GEN-HEADEREND:event_BAnadirActionPerformed
+
+
+    }//GEN-LAST:event_BAnadirActionPerformed
+
+    private void TAnadirKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_TAnadirKeyTyped
+    {//GEN-HEADEREND:event_TAnadirKeyTyped
+
+        if (TAnadir.getText().length() == 5)
+        {
+            evt.consume();
+        } else
+        {
+            validaEntero(evt);
+        }
+
+    }//GEN-LAST:event_TAnadirKeyTyped
+
+    private void validaEntero(KeyEvent ke)
+    {
+        if ((ke.getKeyChar() < '0' || ke.getKeyChar() > '9')
+                && ke.getKeyCode() != 8 && ke.getKeyChar() != '-'
+                && ke.getKeyChar() != '-')
+        {
+            ke.setKeyChar((char) 8);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -141,8 +184,6 @@ public class Principal extends javax.swing.JFrame
     private javax.swing.JButton BAnadir;
     private javax.swing.JLabel J1;
     private javax.swing.JTextField TAnadir;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
