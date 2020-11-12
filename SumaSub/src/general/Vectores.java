@@ -15,9 +15,4 @@ public class Vectores
         this.arr = new int[n];
     }
     
-    public void Isertar(ArrayList numero)
-    {
-        
-    }
-    
 }
