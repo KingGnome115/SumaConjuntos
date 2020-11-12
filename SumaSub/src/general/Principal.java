@@ -8,7 +8,8 @@ import java.awt.event.KeyEvent;
  */
 public class Principal extends javax.swing.JFrame
 {
-
+    
+    String nombre="Kevin";
     public static int tamaño;
     int indice=0;
     Vectores conjunto;
