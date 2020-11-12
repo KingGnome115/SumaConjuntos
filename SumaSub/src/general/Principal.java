@@ -9,8 +9,7 @@ import java.awt.event.KeyEvent;
 public class Principal extends javax.swing.JFrame
 {
 
-    //Saber el número de elementos que tendra el vector
-    int cont = 0;
+    public static int tamaño;
     Vectores conjunto;
 
     /**
@@ -19,6 +18,9 @@ public class Principal extends javax.swing.JFrame
     public Principal()
     {
         initComponents();
+        
+        
+        
     }
 
     /**
@@ -151,19 +153,9 @@ public class Principal extends javax.swing.JFrame
     private void BAnadirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BAnadirActionPerformed
     {//GEN-HEADEREND:event_BAnadirActionPerformed
         
-        if (cont <= 9)
-        {
-            cont++;
-            System.out.println(cont);
-        } else
-        {
-            if (cont == 10)
-            {
-                conjunto = new Vectores(cont);
-                BAnadir.setEnabled(false);
-                BCalcularActionPerformed(evt);
-            }
-        }
+        
+        
+        
 
     }//GEN-LAST:event_BAnadirActionPerformed
 
@@ -182,7 +174,8 @@ public class Principal extends javax.swing.JFrame
     {//GEN-HEADEREND:event_BCalcularActionPerformed
         
         BAnadir.setEnabled(false);
-        JSub.setText(String.valueOf((int)Math.pow(cont, 2)));
+        JSub.setText(String.valueOf((int)Math.pow(tamaño, 2)));
+        
         
     }//GEN-LAST:event_BCalcularActionPerformed
     

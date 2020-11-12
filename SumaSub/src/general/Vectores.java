@@ -13,4 +13,17 @@ public class Vectores
         this.arr = new int[n];
     }
     
+    public void Inserta(int numero, int indice)
+    {
+        arr[indice]=numero;
+    }
+    
+    public void Desp()
+    {
+        for (int i = 0; i < arr.length; i++)
+        {
+            System.out.println(arr[i]);
+            System.out.println("\n");
+        }
+    }
 }
