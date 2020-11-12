@@ -10,6 +10,7 @@ public class Principal extends javax.swing.JFrame
 {
 
     public static int tamaño;
+    int indice=0;
     Vectores conjunto;
 
     /**
@@ -18,9 +19,8 @@ public class Principal extends javax.swing.JFrame
     public Principal()
     {
         initComponents();
-        
-        
-        
+        conjunto = new Vectores(tamaño);
+        System.out.println("Los elementos son "+conjunto.arr.length);
     }
 
     /**
@@ -153,10 +153,20 @@ public class Principal extends javax.swing.JFrame
     private void BAnadirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BAnadirActionPerformed
     {//GEN-HEADEREND:event_BAnadirActionPerformed
         
+        int numero = Integer.parseInt(TAnadir.getText());
         
+        if (indice < tamaño)
+        {
+            conjunto.Inserta(numero, indice);
+            conjunto.Desp();
+            indice++;
+            if (indice==tamaño)
+            {
+                BAnadir.setEnabled(false);
+            }
+            TAnadir.setText("");
+        }
         
-        
-
     }//GEN-LAST:event_BAnadirActionPerformed
 
     private void TAnadirKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_TAnadirKeyTyped
