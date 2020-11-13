@@ -8,9 +8,6 @@ import java.awt.event.KeyEvent;
  */
 public class Principal extends javax.swing.JFrame
 {
-    //Kioña kioña xD
-    String nombre2="El PEPE";
-    String nombre="Kevin";
     public static int tamaño;
     int indice=0;
     Vectores conjunto;
@@ -156,13 +153,14 @@ public class Principal extends javax.swing.JFrame
     {//GEN-HEADEREND:event_BAnadirActionPerformed
         
         int numero = Integer.parseInt(TAnadir.getText());
-        
+
         if (indice < tamaño)
         {
             conjunto.Inserta(numero, indice);
-            conjunto.Desp();
+            J1.setText("");
+            J1.setText(conjunto.Desp());
             indice++;
-            if (indice==tamaño)
+            if (indice == tamaño)
             {
                 BAnadir.setEnabled(false);
             }

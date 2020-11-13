@@ -63,6 +63,13 @@ public class Inicial extends javax.swing.JFrame
         });
 
         BCancelar.setText("Cancelar");
+        BCancelar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                BCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -148,6 +155,11 @@ public class Inicial extends javax.swing.JFrame
             TTama.setText("");
         }
     }//GEN-LAST:event_BAceptarActionPerformed
+
+    private void BCancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BCancelarActionPerformed
+    {//GEN-HEADEREND:event_BCancelarActionPerformed
+        System.exit(1);
+    }//GEN-LAST:event_BCancelarActionPerformed
 
     private void validaEntero(KeyEvent ke)
     {

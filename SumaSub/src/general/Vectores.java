@@ -6,23 +6,29 @@ package general;
  */
 public class Vectores
 {
+
     int arr[];
+    int tope = -1;
 
     public Vectores(int n)
     {
         this.arr = new int[n];
     }
-    
+
     public void Inserta(int numero, int indice)
     {
-        arr[indice]=numero;
+        arr[indice] = numero;
+        tope++;
     }
-    
-    public void Desp()
+
+    public String Desp()
     {
-        for (int i = 0; i < arr.length; i++)
+        String s = "{";
+        for (int i = 0; i <= tope; i++)
         {
-            System.out.println(arr[i]+" ");
+            s += " " + arr[i] + " ";
         }
+        s += "}";
+        return s;
     }
 }
