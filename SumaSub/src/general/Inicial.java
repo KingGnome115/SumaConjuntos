@@ -138,17 +138,12 @@ public class Inicial extends javax.swing.JFrame
 
         int tamaño = Integer.parseInt(TTama.getText());
 
-        if (tamaño > 0 && tamaño < 11)
-        {
+       
             Principal.tamaño = Integer.parseInt(TTama.getText());
             Principal principal = new Principal();
             this.setVisible(false);
             principal.setVisible(true);
-        } else
-        {
-            error(this, "Solo se permite conjuntos de 1 a 10");
-            TTama.setText("");
-        }
+       
     }//GEN-LAST:event_BAceptarActionPerformed
 
     private void BCancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BCancelarActionPerformed
