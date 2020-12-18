@@ -230,6 +230,8 @@ public class Principal extends javax.swing.JFrame
     private void BCalcularActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BCalcularActionPerformed
     {//GEN-HEADEREND:event_BCalcularActionPerformed
 
+        long inicio = System.currentTimeMillis();
+
         BAnadir.setEnabled(false);
         JSub.setText(String.valueOf((int) Math.pow(2, tamaño)));
         if (conjunto.HayResultados())
@@ -240,6 +242,10 @@ public class Principal extends javax.swing.JFrame
         {
             JSubSo.setText("No hay resultados posibles");
         }
+
+        long fin = System.currentTimeMillis();
+        double tiempo = (double) ((fin - inicio) / 1000);
+        System.out.println("Tarde :" + tiempo + " segundos");
 
     }//GEN-LAST:event_BCalcularActionPerformed
 
@@ -263,10 +269,10 @@ public class Principal extends javax.swing.JFrame
 
     private void BReinicioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BReinicioActionPerformed
     {//GEN-HEADEREND:event_BReinicioActionPerformed
-        
+
         new Inicial().setVisible(true);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_BReinicioActionPerformed
 
     static int generaNumeros(int desde, int hasta)
