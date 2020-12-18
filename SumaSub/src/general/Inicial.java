@@ -1,8 +1,6 @@
 package general;
 
 import java.awt.event.KeyEvent;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -166,17 +164,6 @@ public class Inicial extends javax.swing.JFrame
                 && ke.getKeyCode() != 8)
         {
             ke.setKeyChar((char) 8);
-        }
-    }
-
-    public void error(JFrame jf, String s)
-    {
-        if (jf == null)
-        {
-            System.out.println(s);
-        } else
-        {
-            JOptionPane.showMessageDialog(jf, s, "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
