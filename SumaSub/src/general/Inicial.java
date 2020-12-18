@@ -40,6 +40,13 @@ public class Inicial extends javax.swing.JFrame
         jLabel1.setText("                                                  ¿Tamaño del Vector?");
 
         TTama.setToolTipText("Maximo 10 elementos");
+        TTama.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                TTamaActionPerformed(evt);
+            }
+        });
         TTama.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyTyped(java.awt.event.KeyEvent evt)
@@ -74,16 +81,16 @@ public class Inicial extends javax.swing.JFrame
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(TTama, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(167, 167, 167))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addComponent(BAceptar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BCancelar)
                 .addGap(47, 47, 47))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TTama, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(132, 132, 132))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,7 +130,7 @@ public class Inicial extends javax.swing.JFrame
     private void TTamaKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_TTamaKeyTyped
     {//GEN-HEADEREND:event_TTamaKeyTyped
 
-        if (TTama.getText().length() == 2)
+        if (TTama.getText().length() == 100000)
         {
             evt.consume();
         } else
@@ -136,25 +143,22 @@ public class Inicial extends javax.swing.JFrame
     private void BAceptarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BAceptarActionPerformed
     {//GEN-HEADEREND:event_BAceptarActionPerformed
 
-        int tamaño = Integer.parseInt(TTama.getText());
+        Principal.tamaño = Integer.parseInt(TTama.getText());
+        Principal principal = new Principal();
+        this.setVisible(false);
+        principal.setVisible(true);
 
-        if (tamaño > 0 && tamaño < 11)
-        {
-            Principal.tamaño = Integer.parseInt(TTama.getText());
-            Principal principal = new Principal();
-            this.setVisible(false);
-            principal.setVisible(true);
-        } else
-        {
-            error(this, "Solo se permite conjuntos de 1 a 10");
-            TTama.setText("");
-        }
     }//GEN-LAST:event_BAceptarActionPerformed
 
     private void BCancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BCancelarActionPerformed
     {//GEN-HEADEREND:event_BCancelarActionPerformed
         System.exit(1);
     }//GEN-LAST:event_BCancelarActionPerformed
+
+    private void TTamaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_TTamaActionPerformed
+    {//GEN-HEADEREND:event_TTamaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TTamaActionPerformed
 
     private void validaEntero(KeyEvent ke)
     {

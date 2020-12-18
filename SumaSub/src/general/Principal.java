@@ -8,8 +8,9 @@ import java.awt.event.KeyEvent;
  */
 public class Principal extends javax.swing.JFrame
 {
+
     public static int tamaño;
-    int indice=0;
+    int indice = 0;
     Vectores conjunto;
 
     /**
@@ -43,6 +44,8 @@ public class Principal extends javax.swing.JFrame
         JSubSo = new javax.swing.JLabel();
         Jscroll = new javax.swing.JScrollPane();
         TResultados = new javax.swing.JTextArea();
+        BAutomatico = new javax.swing.JButton();
+        BReinicio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,6 +87,25 @@ public class Principal extends javax.swing.JFrame
         TResultados.setRows(5);
         Jscroll.setViewportView(TResultados);
 
+        BAutomatico.setText("Automatico");
+        BAutomatico.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                BAutomaticoActionPerformed(evt);
+            }
+        });
+
+        BReinicio.setText("Reinicio");
+        BReinicio.setToolTipText("");
+        BReinicio.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                BReinicioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -93,6 +115,8 @@ public class Principal extends javax.swing.JFrame
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Jscroll, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BReinicio)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -116,7 +140,9 @@ public class Principal extends javax.swing.JFrame
                                 .addComponent(TAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(71, 71, 71)
                                 .addComponent(BAnadir)
-                                .addGap(0, 132, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(BAutomatico)
+                                .addGap(0, 19, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -127,19 +153,25 @@ public class Principal extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BAnadir))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BCalcular)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JSub, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label1))
+                    .addComponent(BAnadir)
+                    .addComponent(BAutomatico))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JSubSo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addComponent(Jscroll, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(BCalcular)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JSub, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JSubSo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addComponent(Jscroll, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BReinicio)))
                 .addContainerGap())
         );
 
@@ -166,7 +198,7 @@ public class Principal extends javax.swing.JFrame
 
     private void BAnadirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BAnadirActionPerformed
     {//GEN-HEADEREND:event_BAnadirActionPerformed
-        
+
         int numero = Integer.parseInt(TAnadir.getText());
 
         if (indice < tamaño)
@@ -181,7 +213,7 @@ public class Principal extends javax.swing.JFrame
             }
             TAnadir.setText("");
         }
-        
+
     }//GEN-LAST:event_BAnadirActionPerformed
 
     private void TAnadirKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_TAnadirKeyTyped
@@ -197,9 +229,9 @@ public class Principal extends javax.swing.JFrame
 
     private void BCalcularActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BCalcularActionPerformed
     {//GEN-HEADEREND:event_BCalcularActionPerformed
-        
+
         BAnadir.setEnabled(false);
-        JSub.setText(String.valueOf((int)Math.pow(2, tamaño)));
+        JSub.setText(String.valueOf((int) Math.pow(2, tamaño)));
         if (conjunto.HayResultados())
         {
             TResultados.setText(conjunto.Subconjuntos());
@@ -208,9 +240,40 @@ public class Principal extends javax.swing.JFrame
         {
             JSubSo.setText("No hay resultados posibles");
         }
-        
+
     }//GEN-LAST:event_BCalcularActionPerformed
-    
+
+    private void BAutomaticoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BAutomaticoActionPerformed
+    {//GEN-HEADEREND:event_BAutomaticoActionPerformed
+
+        System.out.println("Llegue al metodo for");
+        for (int i = 0; i < tamaño; i++)
+        {
+            int numero = generaNumeros(-10, 10);
+            System.out.println(i + ": " + numero);
+            conjunto.Inserta(numero, i);
+            if (tamaño - 1 == i)
+            {
+                J1.setText("Datos en el conjunto son mushos");
+            }
+        }
+
+
+    }//GEN-LAST:event_BAutomaticoActionPerformed
+
+    private void BReinicioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_BReinicioActionPerformed
+    {//GEN-HEADEREND:event_BReinicioActionPerformed
+        
+        new Inicial().setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_BReinicioActionPerformed
+
+    static int generaNumeros(int desde, int hasta)
+    {
+        return (int) (Math.random() * (hasta - desde + 1) + desde);
+    }
+
     private void validaEntero(KeyEvent ke)
     {
         if ((ke.getKeyChar() < '0' || ke.getKeyChar() > '9')
@@ -268,7 +331,9 @@ public class Principal extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BAnadir;
+    private javax.swing.JButton BAutomatico;
     private javax.swing.JButton BCalcular;
+    private javax.swing.JButton BReinicio;
     private javax.swing.JLabel J1;
     private javax.swing.JLabel JSub;
     private javax.swing.JLabel JSubSo;
